@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>alycia-dev</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portofolio digital Shiina Mahiru, menampilkan karya dan sertifikat developer pemula bertema anime." />
+  <meta name="keywords" content="Shiina Mahiru, portofolio, sertifikat, developer pemula, anime, karya digital" />
+  <meta name="author" content="Ramdan" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Schema Markup JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shiina Mahiru",
+    "url": "https://website-portfolio-anda.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/ramdan",
+      "https://github.com/ramdan"
+    ],
+    "jobTitle": "Developer Pemula",
+    "image": "https://website-portfolio-anda.com/images/shiina-mahiru.jpeg",
+    "email": "mailto:ramdan.personal@gmail.com",
+    "telephone": "+6285796182078"
+  }
+  </script>
+</head>
+<body>
+  <div id="lightbox" aria-hidden="true" role="dialog" tabindex="-1">
+  <div id="lightbox-content">
+    <button id="lightbox-close" aria-label="Tutup gambar">&times;</button>
+    <img id="lightbox-img" src="" alt="Gambar diperbesar" />
+  </div>
+</div>
+  <header>
+    <div class="container">
+      <h1>alycia-dev</h1>
+      <nav>
+        <ul>
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#sertifikat">Sertifikat</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+      <button id="darkToggle" aria-pressed="false" aria-label="Toggle mode gelap">🌙 Mode Gelap</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="beranda" class="hero" aria-label="Beranda">
+      <div class="hero-text">
+        <h2>HELLO, WORLD!</h2>
+        <p>Kamu berhasil menemukan halaman web ku, akan ku perkenalkan beberapa project yang sedang ku buat saat ini ke dunia.</p>
+      </div>
+      <img id="mahiruImage" src="images/shiina1.jpg" alt="Portrait Shiina Mahiru" />
+    </section>
+
+    <section id="tentang" aria-label="Tentang Saya">
+      <h2>Tentang Saya</h2>
+      <p>Hai, namaku Ramdan. Seseorang yang berada dibalik alycia-dev. Saya penanggung jawab project yang diluncurkan atas nama alycia-dev.</p>
+    </section>
+
+    <section id="sertifikat" aria-label="Portofolio Sertifikat">
+      <h2>Sertifikat</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Karya 1</h3>
+          <img src="sertifikat/sertifikat1.png" alt="Keanggotaan IMPHNEN (Ingin Menjadi Programmer Handal Namun Enggan Ngoding)" />
+        </article>
+        <article class="card">
+          <h3>Karya 2</h3>
+          <img src="sertifikat/sertifikat2.png" alt="RUCKUS ICX Implementer Accreditation (RICXI)" />
+        </article>
+        <article class="card">
+          <h3>Karya 3</h3>
+          <img src="sertifikat/sertifikat3.jpg" alt="Belum Ada" />
+        </article>
+      </div>
+    </section>
+
+    <section id="kontak" aria-label="Kontak">
+      <h2>Kontak</h2>
+      <p>+62 857 9618 2078</p>
+      <p><a href="mailto:ramdan.personal@gmail.com">ramdan.personal@gmail.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ramdan</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
