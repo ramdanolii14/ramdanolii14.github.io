@@ -1,0 +1,142 @@
+/* === Font & Base === */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f3f3;
+  color: #333;
+  line-height: 1.6;
+  padding-top: 6rem;
+}
+
+/* Navbar Styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid #d0e3ff;
+  box-shadow: 0 2px 8px rgba(100, 150, 255, 0.2);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #294c8d;
+  font-family: 'Segoe UI', cursive;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #294c8d;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  background-color: #e2eeff;
+  color: #1f3a73;
+}
+
+
+/* === Hero Section === */
+.hero {
+  background: url('assets/ayaka-header.jpeg') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.hero.small {
+  height: 50vh;
+}
+
+.hero .overlay {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+/* === Main Content === */
+.content, .social-section {
+  padding: 2rem;
+  max-width: 960px;
+  margin: auto;
+  text-align: center;
+}
+
+h1, h2, h3 {
+  font-family: 'Georgia', serif;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background-color: #88c4e0;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #5daed1;
+}
+
+.link-section {
+  margin-top: 2rem;
+}
+
+/* === Card for Social Media === */
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin: 1rem auto;
+  max-width: 400px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 64px;
+  margin-bottom: 1rem;
+}
+
+footer {
+  background: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 3rem;
+}

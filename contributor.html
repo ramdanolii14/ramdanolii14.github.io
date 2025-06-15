@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contributor | alycia-dev</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: url('assets/ayaka-snow-bg.jpg') center/cover no-repeat fixed;
+      font-family: 'Segoe UI', sans-serif;
+      color: #233d72;
+      margin: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid #d0e3ff;
+    }
+
+    header h1 {
+      font-size: 2rem;
+    }
+
+    .contributors {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #f9f9ff, #e8f0ff);
+      border: 2px solid #c0d7f7;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(137, 174, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #a7c4ff;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .social-btns a {
+      display: inline-block;
+      margin: 0.25rem;
+      padding: 0.5rem 1rem;
+      background-color: #b2d0ff;
+      color: #233d72;
+      border-radius: 2rem;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .social-btns a:hover {
+      background-color: #96c1ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">alycia-dev</div>
+    <ul class="nav-links">
+      <li><a href="./index.html">Beranda</a></li>
+      <li><a href="./project.html">Proyek</a></li>
+      <li><a href="./social-media.html">Sosial Media</a></li>
+      <li><a href="./contributor.html">Contributor</a></li>
+    </ul>
+  </div>
+</nav>
+  <header>
+    <h1>Terima Kasih Kepada -></h1>
+    <p>Orang-orang yang telah mendukung selama ini.</p>
+  </header>
+
+  <section class="contributors">
+    <!-- Kontributor 1 -->
+    <div class="card">
+      <img src="assets/orangtua.jpg" alt="Orang Tua">
+      <h3>Orang Tua.</h3>
+      <p>Dua orang terbaik yang selalu berusaha yang terbaik.</p>
+      <div class="social-btns">
+      </div>
+    </div>
+
+    <!-- Kontributor 2 -->
+    <div class="card">
+      <img src="assets/ramdan.jpg" alt="Ramdan">
+      <h3>Ramdan Olii.</h3>
+      <p>Developer utama dari semua project yang dibuat atas nama alycia-dev.</p>
+      <div class="social-btns">
+        <a href="https://instagram.com/alyciaperucia" target="_blank">Instagram</a>
+        <a href="https://facebook.com/nyanta.py" target="_blank">Facebook</a>
+      </div>
+    </div>
+
+    <!-- Kontributor 3 -->
+    <div class="card">
+      <img src="assets/israwaty.jpg" alt="Icha">
+      <h3>Israwaty Husain.</h3>
+      <p>-</p>
+      <div class="social-btns">
+        <a href="https://tiktok.com/@claisaaa" target="_blank">TikTok</a>
+        <a href="https://instagram.com/ichahusain_" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Made with ❤️ by Ramdan.</p>
+  </footer>
+</body>
+</html>
