@@ -124,40 +124,59 @@
     </div>
   </div>
 
-  <script>
-    let currentPhoto = "";
+<script>
+  let currentPhoto = "";
+  let currentType = "image";
 
-    function openPreview(src) {
-      currentPhoto = src;
-      document.getElementById("previewImage").src = src;
-      document.getElementById("downloadBtn").href = src;
-      document.getElementById("previewOverlay").classList.add("active");
+  function openPreview(src, type = "image") {
+    currentPhoto = src;
+    currentType = type;
+
+    const img = document.getElementById("previewImage");
+    const video = document.getElementById("previewVideo");
+
+    if (type === "video") {
+      img.classList.add("hidden");
+      video.classList.remove("hidden");
+      video.src = src;
+    } else {
+      video.classList.add("hidden");
+      img.classList.remove("hidden");
+      img.src = src;
     }
 
-    function closePreview() {
-      document.getElementById("previewOverlay").classList.remove("active");
-    }
+    document.getElementById("downloadBtn").href = src;
+    document.getElementById("previewOverlay").classList.add("active");
+  }
 
-    async function sharePhoto() {
-      const link = window.location.origin + "/" + currentPhoto.replace("./", "");
-      if (navigator.share) {
-        try {
-          await navigator.share({
-            title: "Foto dari Gallery Ramdan",
-            text: "Lihat foto ini!",
-            url: link
-          });
-        } catch (err) {
-          console.log("Share dibatalkan", err);
-        }
-      } else {
-        navigator.clipboard.writeText(link);
-        alert("Link foto disalin: " + link);
+  function closePreview() {
+    document.getElementById("previewOverlay").classList.remove("active");
+    const video = document.getElementById("previewVideo");
+    video.pause(); // stop video biar nggak jalan di background
+  }
+
+  async function sharePhoto() {
+    const link = window.location.origin + "/" + currentPhoto.replace("./", "");
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "Media dari Gallery Ramdan",
+          text: "Lihat ini!",
+          url: link
+        });
+      } catch (err) {
+        console.log("Share dibatalkan", err);
       }
+    } else {
+      navigator.clipboard.writeText(link);
+      alert("Link disalin: " + link);
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>
+
 
 
 
