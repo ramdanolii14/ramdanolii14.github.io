@@ -1,83 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
-  <link rel="canonical" href="https://ramdan.fun/" />
-  <title>Ramdan Olii</title>
-  <meta name="description" content="Hey, im ramdan. I coded everything i like." />
-  <meta name="keywords" content="Minecraft, server, pterodactyl, html, css, javascript, js, rugplay, ramdan, ramdanolii, ramdan olii, ramdhan, ramdan olii, icha, israwaty, husain, israwaty husain, israwatyhusain" />
-  <meta name="author" content="Ramdan" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Glassy Lengkap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-  <meta property="og:title" content="Ramdan Olii – Developer" />
-  <meta property="og:description" content="Hey, im ramdan. I coded everything i like. I use next.js for almost all of my project." />
-  <meta property="og:image" content="https://media.discordapp.net/attachments/1394637491369148439/1398203031853596712/IMG-20240921-WA0024.jpg?ex=6884818c&is=6883300c&hm=4c3a6cb9743ca65a3feb98271431086791279628e5b3a5f5772d5152217256e2&=&format=webp&width=930&height=930" />
-  <meta property="og:url" content="https://ramdan.fun" />
-  <meta property="og:type" content="portofolio" />
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <script src="https://cdn.tailwindcss.com"></script>
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url("background.webp");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            padding: 20px;
+        }
 
-  <style>
-    body {
-      background-image: url('./assets/wallpaper.gif');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
 
-    .glass {
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
-      background-color: rgba(17, 25, 40, 0.75);
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.125);
-    }
-  </style>
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 35px;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 20%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            flex-shrink: 0;
+        }
+
+        .text-info {
+            text-align: left;
+        }
+
+        .text-info h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(to right, #fff, #bbb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-info p {
+            font-size: 1rem;
+            color: #ddd;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .social-media {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+        }
+
+        .social-item {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 5px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .social-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .social-item i {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .social-name {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #histats_counter {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .text-info {
+                text-align: center;
+            }
+            .social-media {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen text-white relative">
+<body>
 
-  <!-- Navbar -->
-  <nav class="glass w-full max-w-4xl mx-auto px-6 py-3 flex justify-between items-center fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
-    <div class="text-lg font-bold">ramdan.fun</div>
-    <ul class="flex gap-4 text-sm">
-      <li><a href="https://nyanstream.my.id" class="hover:underline">NyanStream</a></li>
-      <li><a href="https://ramdan.fun/chatchat-landing/" class="hover:underline">ChatChat</a></li>
-    </ul>
-  </nav>
+    <div class="glass-card">
+        <div class="profile-header">
+            <img src="./ramdan.webp" alt="Foto Profil" class="profile-img">
+            
+            <div class="text-info">
+                <h1>Ramdan Olii</h1>
+                <p>Halo, namaku <strong>Ramdan</strong>. Aku ngoding apapun yang kusuka. <br>Aku tertarik dengan Linux, Low-level programming dan Fotografi.</p>
+            </div>
+        </div>
 
-  <!-- Main Content -->
-  <main class="glass p-6 w-full max-w-md text-center mt-24" itemscope itemtype="http://schema.org/Person">
-    <img src="./assets/ramdan.jpg" alt="Ramdan Olii" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-white" itemprop="image" />
-    <h1 class="text-2xl font-bold" itemprop="name">Ramdan Olii</h1>
-    <p class="text-sm mt-2 mb-4 px-2" itemprop="description">
-      Hey, im ramdan. I coded everything i like. I'm interested in <strong>cybersecurity</strong>, <strong>machine learning</strong>,  <strong>photography</strong>, and <strong>low-level programming</strong>.
-    </p>
-    <div class="flex justify-center gap-4">
-      <a href="mailto:dev@ramdan.fun" class="flex items-center gap-2 bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg" rel="noopener noreferrer" target="_blank">
-        Mail (i won't reply).
-      </a>
-      <a href="https://wa.me/6285796182078" class="flex items-center gap-2 bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg" rel="noopener noreferrer" target="_blank">
-        Whatsapp
-      </a>
+        <div class="social-media">
+            <a href="https://github.com/ramdanolii14" target="_blank" class="social-item">
+                <i class="fab fa-github"></i>
+                <span class="social-name">GitHub</span>
+            </a>
+            <a href="https://www.facebook.com/nyanta.py/" target="_blank" class="social-item">
+                <i class="fab fa-facebook"></i>
+                <span class="social-name">Facebook</span>
+            </a>
+            <a href="https://www.instagram.com/alyciaperucia/" target="_blank" class="social-item">
+                <i class="fab fa-instagram"></i>
+                <span class="social-name">Instagram</span>
+            </a>
+            <a href="https://wa.me/6285796182078" target="_blank" class="social-item">
+                <i class="fab fa-whatsapp"></i>
+                <span class="social-name">WhatsApp</span>
+            </a>
+            <a href="https://www.nyanstream.my.id/" target="_blank" class="social-item">
+                <i class="fas fa-play-circle"></i>
+                <span class="social-name">Nyanstream</span>
+            </a>
+            <a href="https://nyanpixel.rf.gd/" target="_blank" class="social-item">
+                <i class="fas fa-cubes"></i>
+                <span class="social-name">Nyanpixel</span>
+            </a>
+            
+            <div id="histats_counter"></div>
+            <script type="text/javascript">var _Hasync= _Hasync|| [];
+                _Hasync.push(['Histats.start', '1,4963793,4,604,110,55,00011000']);
+                _Hasync.push(['Histats.fasi', '1']);
+                _Hasync.push(['Histats.track_hits', '']);
+                (function() {
+                var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+                hs.src = ('//s10.histats.com/js15_as.js');
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+                })();</script>
+        </div>
     </div>
-  </main>
+
 </body>
 </html>
-   <div id="histats_counter"></div>
-<script type="text/javascript">var _Hasync= _Hasync|| [];
-_Hasync.push(['Histats.start', '1,4963793,4,604,110,55,00011000']);
-_Hasync.push(['Histats.fasi', '1']);
-_Hasync.push(['Histats.track_hits', '']);
-(function() {
-var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-hs.src = ('//s10.histats.com/js15_as.js');
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-})();</script>
-<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4963793&101" alt="" border="0"></a></noscript>
-
-
-
-
-
-
