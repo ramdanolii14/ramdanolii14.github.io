@@ -125,6 +125,67 @@
             margin-top: 20px;
         }
 
+        /* --- MUSIC PLAYER CSS --- */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 12px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        .music-cover {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .music-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .music-title {
+            font-size: 12px;
+            font-weight: 600;
+            max-width: 120px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .music-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .play-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .volume-slider {
+            width: 50px;
+            cursor: pointer;
+            accent-color: #fff;
+        }
+
         @media (max-width: 600px) {
             .profile-header {
                 flex-direction: column;
@@ -135,6 +196,12 @@
             }
             .social-media {
                 grid-template-columns: repeat(3, 1fr);
+            }
+            .music-player {
+                right: 50%;
+                transform: translateX(50%);
+                width: calc(100% - 40px);
+                justify-content: center;
             }
         }
     </style>
@@ -190,6 +257,53 @@
         </div>
     </div>
 
+    <div class="music-player">
+        <img src="/cover.webp" alt="Cover" class="music-cover" id="music-cover">
+        <div class="music-info">
+            <span class="music-title" id="music-title">starly(slowed) - LONOWN, riserayss</span>
+            <div class="music-controls">
+                <button class="play-btn" id="play-pause">
+                    <i class="fas fa-pause"></i>
+                </button>
+                <input type="range" class="volume-slider" id="volume" min="0" max="1" step="0.1" value="0.5">
+            </div>
+        </div>
+        <audio id="myAudio" autoplay loop>
+            <source src="music.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script>
+        const audio = document.getElementById('myAudio');
+        const playBtn = document.getElementById('play-pause');
+        const volumeSlider = document.getElementById('volume');
+        const icon = playBtn.querySelector('i');
+
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                icon.classList.replace('fa-play', 'fa-pause');
+            } else {
+                audio.pause();
+                icon.classList.replace('fa-pause', 'fa-play');
+            }
+        });
+
+        volumeSlider.addEventListener('input', (e) => {
+            audio.volume = e.target.value;
+        });
+
+        window.addEventListener('load', () => {
+            audio.volume = 0.5;
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                }).catch(error => {
+                    icon.classList.replace('fa-pause', 'fa-play');
+                });
+            }
+        });
+    </script>
+
 </body>
 </html>
-
