@@ -197,13 +197,6 @@
             .social-media {
                 grid-template-columns: repeat(3, 1fr);
             }
-            .music-player {
-                right: 50%;
-                transform: translateX(50%);
-                width: calc(100% - 40px);
-                justify-content: center;
-            }
-        }
     </style>
 </head>
 <body>
@@ -257,54 +250,7 @@
         </div>
     </div>
 
-    <div class="music-player">
-        <img src="/cover.webp" alt="Cover" class="music-cover" id="music-cover">
-        <div class="music-info">
-            <span class="music-title" id="music-title">starly(slowed) - LONOWN, riserayss</span>
-            <div class="music-controls">
-                <button class="play-btn" id="play-pause">
-                    <i class="fas fa-pause"></i>
-                </button>
-                <input type="range" class="volume-slider" id="volume" min="0" max="1" step="0.1" value="0.5">
-            </div>
-        </div>
-        <audio id="myAudio" autoplay loop>
-            <source src="/music.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <script>
-        const audio = document.getElementById('myAudio');
-        const playBtn = document.getElementById('play-pause');
-        const volumeSlider = document.getElementById('volume');
-        const icon = playBtn.querySelector('i');
-
-        playBtn.addEventListener('click', () => {
-            if (audio.paused) {
-                audio.play();
-                icon.classList.replace('fa-play', 'fa-pause');
-            } else {
-                audio.pause();
-                icon.classList.replace('fa-pause', 'fa-play');
-            }
-        });
-
-        volumeSlider.addEventListener('input', (e) => {
-            audio.volume = e.target.value;
-        });
-
-        window.addEventListener('load', () => {
-            audio.volume = 0.5;
-            const playPromise = audio.play();
-            if (playPromise !== undefined) {
-                playPromise.then(_ => {
-                }).catch(error => {
-                    icon.classList.replace('fa-pause', 'fa-play');
-                });
-            }
-        });
-    </script>
-
 </body>
 </html>
+
 
