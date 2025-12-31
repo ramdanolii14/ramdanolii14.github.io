@@ -4,253 +4,226 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ramdan Olii</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Inter', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: url("background.webp");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #050505;
             color: white;
-            padding: 20px;
+            overflow-x: hidden;
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.1);
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 40px;
-            width: 100%;
-            max-width: 700px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .profile-header {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            margin-bottom: 35px;
-        }
-
-        .profile-img {
-            width: 140px;
-            height: 140px;
-            border-radius: 20%;
-            object-fit: cover;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            flex-shrink: 0;
-        }
-
-        .text-info {
-            text-align: left;
-        }
-
-        .text-info h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            background: linear-gradient(to right, #fff, #bbb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .text-info p {
-            font-size: 1rem;
-            color: #ddd;
-            line-height: 1.6;
-            font-weight: 300;
-        }
-
-        .social-media {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            gap: 15px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
-        }
-
-        .social-item {
-            text-decoration: none;
-            color: rgba(255, 255, 255, 0.8);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 5px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-
-        .social-item:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-5px);
-            color: #fff;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .social-item i {
-            font-size: 22px;
-            margin-bottom: 8px;
-        }
-
-        .social-name {
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        #histats_counter {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        /* --- MUSIC PLAYER CSS --- */
-        .music-player {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.1);
+        .nav-glass {
+            background: rgba(5, 5, 5, 0.5);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 12px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
         }
 
-        .music-cover {
-            width: 45px;
-            height: 45px;
-            border-radius: 8px;
-            object-fit: cover;
-            border: 1px solid rgba(255,255,255,0.2);
+        /* Class untuk link aktif di navbar */
+        .nav-link.active {
+            color: #818cf8; /* indigo-400 */
+            position: relative;
         }
 
-        .music-info {
-            display: flex;
-            flex-direction: column;
+        .bg-gradient-blur {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            opacity: 0.3;
+            animation: float 20s infinite alternate;
         }
 
-        .music-title {
-            font-size: 12px;
-            font-weight: 600;
-            max-width: 120px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100vw, 100vh); }
         }
-
-        .music-controls {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 5px;
-        }
-
-        .play-btn {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .volume-slider {
-            width: 50px;
-            cursor: pointer;
-            accent-color: #fff;
-        }
-
-        @media (max-width: 600px) {
-            .profile-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            .text-info {
-                text-align: center;
-            }
-            .social-media {
-                grid-template-columns: repeat(3, 1fr);
-            }
     </style>
 </head>
 <body>
 
-    <div class="glass-card">
-        <div class="profile-header">
-            <img src="./ramdan.webp" alt="Foto Profil" class="profile-img">
+    <div class="bg-gradient-blur bg-indigo-600 top-[-10%] left-[-10%]"></div>
+    <div class="bg-gradient-blur bg-fuchsia-600 bottom-[-10%] right-[-10%]" style="animation-delay: -10s;"></div>
+
+    <nav class="fixed top-0 w-full z-[100] nav-glass">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-xl font-extrabold tracking-tighter">
+                <span class="text-indigo-500">RAMDAN</span>OLII.
+            </div>
             
-            <div class="text-info">
-                <h1>Ramdan Olii</h1>
-                <p>Halo, namaku <strong>Ramdan</strong>. Aku ngoding apapun yang kusuka. <br>Aku tertarik dengan Linux, Low-level programming dan Fotografi.</p>
+            <div class="hidden md:flex items-center space-x-10 text-sm font-semibold tracking-wide">
+                <a href="#about" class="nav-link hover:text-indigo-400 transition">TENTANG</a>
+                <a href="#gallery" class="nav-link hover:text-indigo-400 transition">GALERI</a>
+                <a href="#projects" class="nav-link hover:text-indigo-400 transition">PROYEK</a>
+                <a href="#contact" class="nav-link hover:text-indigo-400 transition">KONTAK</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="mailto:ramdan.personal@gmail.com" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2.5 px-6 rounded-full transition">
+                    MAIL ME.
+                </a>
             </div>
         </div>
+    </nav>
 
-        <div class="social-media">
-            <a href="https://github.com/ramdanolii14" target="_blank" class="social-item">
-                <i class="fab fa-github"></i>
-                <span class="social-name">GitHub</span>
-            </a>
-            <a href="https://www.facebook.com/nyanta.py/" target="_blank" class="social-item">
-                <i class="fab fa-facebook"></i>
-                <span class="social-name">Facebook</span>
-            </a>
-            <a href="https://www.instagram.com/alyciaperucia/" target="_blank" class="social-item">
-                <i class="fab fa-instagram"></i>
-                <span class="social-name">Instagram</span>
-            </a>
-            <a href="https://wa.me/6285796182078" target="_blank" class="social-item">
-                <i class="fab fa-whatsapp"></i>
-                <span class="social-name">WhatsApp</span>
-            </a>
-            <a href="https://www.nyanstream.my.id/" target="_blank" class="social-item">
-                <i class="fas fa-play-circle"></i>
-                <span class="social-name">Nyanstream</span>
-            </a>
-            <a href="https://nyanpixel.rf.gd/" target="_blank" class="social-item">
-                <i class="fas fa-cubes"></i>
-                <span class="social-name">Nyanpixel</span>
-            </a>
+    <section id="about" class="min-h-screen flex items-center justify-center px-6 lg:px-24 pt-20">
+        <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center" data-aos="fade-up" data-aos-duration="1000">
             
-            <div id="histats_counter"></div>
-            <script type="text/javascript">var _Hasync= _Hasync|| [];
-                _Hasync.push(['Histats.start', '1,4963793,4,604,110,55,00011000']);
-                _Hasync.push(['Histats.fasi', '1']);
-                _Hasync.push(['Histats.track_hits', '']);
-                (function() {
-                var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-                hs.src = ('//s10.histats.com/js15_as.js');
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-                })();</script>
+            <div class="relative group mx-auto lg:ml-0">
+                <div class="absolute -inset-2 bg-gradient-to-r from-indigo-500 to-fuchsia-500 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                
+                <div class="relative w-72 h-[450px] md:w-[380px] md:h-[500px] bg-gray-900 rounded-3xl overflow-hidden glass border border-white/10">
+                    <img src="https://nyanpixel.rf.gd/uploads/694a92453465a.jpg" alt="Ramdan" class="w-full h-full object-cover object-top transition duration-700 group-hover:scale-110">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                </div>
+            </div>
+
+            <div class="lg:pl-4">
+                <div class="inline-block px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
+                    <span class="text-indigo-400 font-mono text-xs tracking-widest uppercase">| Lagi Istirahat |</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-[1.1]">
+                    Halo, Namaku <br> 
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-fuchsia-400 italic">Ramdan Olii.</span>
+                </h1>
+                <p class="text-gray-400 text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
+                    Aku ngoding apapun yang kusuka. <br>
+                    Aku tertarik dengan : <br>
+                    1. Linux [I use Arch btw], <br>
+                    2. Low-level programming,<br>
+                    3. Fotografi.
+                </p>
+                <div class="flex flex-wrap gap-5">
+                    <a href="#gallery" class="bg-white text-black px-10 py-4 rounded-2xl font-bold hover:bg-indigo-50 transition-all hover:-translate-y-1 shadow-xl shadow-white/5">
+                        Galeri Saya
+                    </a>
+                    <a href="#projects" class="glass px-10 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all border-white/10 hover:-translate-y-1">
+                        Projects
+                    </a>
+                </div>
+            </div>
+
         </div>
-    </div>
+    </section>
+
+    <section id="gallery" class="min-h-screen flex items-center py-24 px-6 bg-white/[0.01]">
+        <div class="max-w-6xl mx-auto w-full" data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-12 text-center italic">Foto dibawah dihosting pakai <span class="text-indigo-400 tracking-tighter">Nyanpixel.</span></h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 h-[650px]">
+                <div class="glass rounded-xl overflow-hidden h-full"><img src="https://nyanpixel.rf.gd/uploads/6948cd222da9a.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+                <div class="glass rounded-xl overflow-hidden h-full"><img src="https://nyanpixel.rf.gd/uploads/6948f7477ecaf.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+                <div class="glass rounded-xl overflow-hidden h-full row-span-2"><img src="https://nyanpixel.rf.gd/uploads/694a92453465a.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+                <div class="glass rounded-xl overflow-hidden h-full"><img src="https://nyanpixel.rf.gd/uploads/6948b9c1238c3.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+                <div class="glass rounded-xl overflow-hidden h-full"><img src="https://nyanpixel.rf.gd/uploads/6948f8a39f635.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="min-h-screen flex items-center py-24 px-6">
+        <div class="max-w-6xl mx-auto w-full">
+            <h2 class="text-4xl font-bold mb-16" data-aos="fade-right">Proyek <span class="text-fuchsia-400">Gabut</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass p-8 rounded-3xl group hover:border-indigo-500/50 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:shadow-indigo-500/20" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-500 transition">01</div>
+                    <h3 class="text-2xl font-bold mb-4">Nyanstream</h3>
+                    <p class="text-gray-400 mb-6 italic">Membangun aplikasi video streaming dengan Typescript dan postgresql.</p>
+                    <a href="https://nyanstream.my.id" class="text-sm font-bold text-indigo-400 underline uppercase tracking-tighter">Lihat Detail</a>
+                </div>
+                <div class="glass p-8 rounded-3xl group hover:border-fuchsia-500/50 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:shadow-fuchsia-500/20" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-fuchsia-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-fuchsia-500 transition">02</div>
+                    <h3 class="text-2xl font-bold mb-4">Nyanchain</h3>
+                    <p class="text-gray-400 mb-6 italic">Membangun aplikasi blockchain sederhana untuk have fun(pakai php).</p>
+                    <a href="#" class="text-sm font-bold text-fuchsia-400 underline uppercase tracking-tighter">Lihat Detail</a>
+                </div>
+                <div class="glass p-8 rounded-3xl group hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:shadow-cyan-500/20" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cyan-500 transition">03</div>
+                    <h3 class="text-2xl font-bold mb-4">Nyanpixel</h3>
+                    <p class="text-gray-400 mb-6 italic">Membangun aplikasi sharing image(terinspirasi dari pinterest), menggunakan pure php dan self host.</p>
+                    <a href="#" class="text-sm font-bold text-cyan-400 underline uppercase tracking-tighter">Lihat Detail</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="min-h-screen flex items-center justify-center px-6">
+        <div class="max-w-2xl w-full" data-aos="zoom-out">
+            <div class="glass rounded-[2rem] p-12 text-center relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10 text-8xl font-black italic">Ramdan</div>
+                <h2 class="text-4xl font-bold mb-6 italic">"Ramdan"</h2>
+                <p class="text-gray-300 text-lg mb-10 leading-relaxed">
+                    Btw email dibawah ini jangan terlalu berharap gw balas ya hehe, kalo mau dibalas langsung ke wa atau ig aja.
+                </p>
+                <div class="glass bg-white/10 p-6 rounded-2xl inline-block w-full max-w-sm">
+                    <p class="text-xs text-gray-400 mb-1 uppercase tracking-widest">Mari terhubung</p>
+                    <p class="text-xl font-bold tracking-tight uppercase">ramdan.personal@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/5 text-center">
+        <div class="flex justify-center gap-8 mb-6 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500">
+            <a href="https://instagram.com/alyciaperucia" class="hover:text-indigo-400 transition">Instagram</a>
+            <a href="https://wa.me/6285796182078" class="hover:text-indigo-400 transition">Whatsapp</a>
+            <a href="https://github.com/ramdanolii14" class="hover:text-indigo-400 transition">GitHub</a>
+        </div>
+        <p class="text-[10px] text-gray-600 uppercase tracking-widest">&copy; 2026 Made with ♥️ By Ramdan.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: false,
+            mirror: true
+        });
+
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").includes(current)) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        var _Hasync= _Hasync|| [];
+        _Hasync.push(['Histats.start', '1,4963793,4,604,110,55,00011000']);
+        _Hasync.push(['Histats.fasi', '1']);
+        _Hasync.push(['Histats.track_hits', '']);
+        (function() {
+            var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+            hs.src = ('//s10.histats.com/js15_as.js');
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+        })();
+    </script>
+    <noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4963793&101" alt="" border="0"></a></noscript>
 
 </body>
 </html>
-
-
